@@ -67,17 +67,6 @@ jobs:
           cache-from: type=gha,scope=backend-runner
           cache-to: type=gha,mode=max,scope=backend-runner
 
-      # The image contains no proprietary source or credentials. Public
-      # visibility lets Kubernetes pull a digest without a registry secret.
-      - name: Make published package public
-        if: github.event_name != 'pull_request'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api --method PATCH \
-            "orgs/${{ github.repository_owner }}/packages/container/${{ github.event.repository.name }}%2Fbackend-runner" \
-            --raw-field visibility=public
-
       - name: Verify pull-request image contract
         if: github.event_name == 'pull_request'
         run: |

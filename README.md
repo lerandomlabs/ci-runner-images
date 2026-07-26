@@ -34,7 +34,8 @@ docker run --rm --platform linux/amd64 \
 ```
 
 Do not use an unreviewed mutable tag in ARC. A tested image is promoted by
-immutable digest in the Kubernetes repository.
+immutable digest in the Kubernetes repository. Organization policy keeps GHCR
+packages private; ARC must use its dedicated `imagePullSecret` to pull one.
 
 ## Release policy
 
