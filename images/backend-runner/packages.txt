@@ -1,0 +1,15 @@
+# Union of the current backend master CI system-package requirements.
+# Keep this list in sync with the fallback package installation action in the
+# backend repository. The runner image intentionally contains the superset so
+# one ARC image serves mypy, test, RisingWave, and media jobs.
+libvips-dev
+build-essential
+libheif-dev
+libheif-plugin-aomenc
+ffmpeg
+libavif-bin
+libpq-dev
+python3-dev
+postgresql-16-wal2json
+postgresql-16-roaringbitmap
+redis
